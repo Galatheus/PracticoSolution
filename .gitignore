@@ -31,4 +31,8 @@ Practico/obj/Debug/net7.0/Practico.GlobalUsings.g.cs
 Practico/obj/Debug/net7.0/Practico.AssemblyInfo.cs
 Practico/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
 Practico/obj/project.assets.json
-*.json
+Practico/bin/Debug/net7.0/Practico.staticwebassets.runtime.json
+Practico/bin/Debug/net7.0/Practico.runtimeconfig.json
+Practico/bin/Debug/net7.0/Practico.deps.json
+Practico/bin/Debug/net7.0/appsettings.json
+Practico/bin/Debug/net7.0/appsettings.Development.json
