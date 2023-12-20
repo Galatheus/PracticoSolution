@@ -1,0 +1,120 @@
+﻿@using Practico.Types
+@model PaginatedList<Practico.Models.Instancia>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista de Instancias</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Instancia" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Crear Nueva Instancia
+            </a>
+        </div>
+    </div>
+    <br />
+    <form method="get" action="@Url.Action("Index", "Instancia")" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchText" placeholder="Buscar..." value="@ViewBag.CurrentFilter" />
+            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+        </div>
+    </form>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    URL
+                </th>
+                <th>
+                    Tematica
+                </th>
+                <th>
+                    Paleta
+                </th>
+                <th>
+                    Tipo Registro
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Nombre
+                    </td>
+                    <td>
+                        @obj.URL
+                    </td>
+                    <td>
+                        @obj.Tematica
+                    </td>
+                    <td>
+                        @obj.PaletaColor
+                    </td>
+                    <td>
+                        @obj.TipoRegistro
+                    </td>
+                    <td>
+                        @if (obj.Estado == true)
+                        {
+                            <text>Habilitada</text>
+                        }
+                        else
+                        {
+                            <text>No habilitada</text>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Instancia" asp-action="Edit" asp-route-Id="@obj.Id"
+                            class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> &nbsp; Editar
+                            </a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Instancia" asp-action="Delete" asp-route-Id="@obj.Id"
+                            class="btn btn-danger mx-2">
+                                <i class="bi bi-trash3-fill"></i> &nbsp; Borrar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <ul class="pagination">
+            @if (Model.HasPreviousPage)
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1">Primera</a></li>
+            }
+            @for (var i = 1; i <= Model.Pages; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            @if (Model.HasNextPage)
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pages">Última</a></li>
+            }
+        </ul>
+    </div>
+</div>

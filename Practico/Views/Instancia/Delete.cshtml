@@ -1,0 +1,39 @@
+﻿@model Instancia
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Borrar Instancia</h2>
+            <hr />
+        </div>
+        @* <div asp-validation-summary="All"></div> *@
+        <div class"mb-3">
+            <label asp-for="Nombre"></label>
+            <input asp-for="Nombre" class="form-control" disabled/>
+        </div>
+        <div class"mb-3">
+            <label asp-for="URL"></label>
+            <input asp-for="URL" class="form-control" disabled />
+        </div>
+        <div class"mb-3">
+            <label asp-for="Tematica"></label>
+            <input asp-for="Tematica" class="form-control" disabled />
+        </div>
+        <div class"mb-3">
+            <label asp-for="PaletaColor"></label>
+            <input asp-for="PaletaColor" class="form-control" disabled />
+        </div>
+        <div class"mb-3">
+            <label asp-for="TipoRegistro"></label>
+            <input asp-for="TipoRegistro" class="form-control" disabled />
+        </div>
+        <div class"mb-3">
+            <label asp-for="Estado"></label>
+            <input asp-for="Estado" class="form-control" disabled />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-danger" style="width:150px">Borrar</button>
+        <a asp-controller="Instancia" asp-action="Index" class="btn btn-secondary" style="width:150px">Volver</a>
+    </div>
+</form>

@@ -1,0 +1,49 @@
+﻿@model Instancia
+
+<form method="post" asp-action="Create">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Crear Instancia</h2>
+            <hr />
+        </div>
+        @* <div asp-validation-summary="All"></div> *@
+        <div class"mb-3">
+            <label asp-for="Nombre"></label>
+            <input asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class"mb-3">
+            <label asp-for="URL"></label>
+            <input asp-for="URL" class="form-control" />
+            <span asp-validation-for="URL" class="text-danger"></span>
+        </div>
+        <div class"mb-3">
+            <label asp-for="Tematica"></label>
+            <input asp-for="Tematica" class="form-control" />
+            <span asp-validation-for="Tematica" class="text-danger"></span>
+        </div>
+        <div class"mb-3">
+            <label asp-for="PaletaColor"></label>
+            <input asp-for="PaletaColor" class="form-control" />
+            <span asp-validation-for="PaletaColor" class="text-danger"></span>
+        </div>
+        <div class"mb-3">
+            <label asp-for="TipoRegistro"></label>
+            <input asp-for="TipoRegistro" class="form-control" />
+            <span asp-validation-for="TipoRegistro" class="text-danger"></span>
+        </div>
+        <div class"mb-3">
+            <label asp-for="Estado"></label>
+            <input asp-for="Estado" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" style="width:150px">Crear</button>
+        <a asp-controller="Instancia" asp-action="Index" class="btn btn-secondary" style="width:150px">Volver</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />    
+    }
+}
